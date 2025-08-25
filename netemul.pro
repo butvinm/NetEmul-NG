@@ -14,7 +14,8 @@ include(src/commands/commands.pri)
 include(src/delegats/delegats.pri)
 include(src/interfaces/interfaces.pri)
 TEMPLATE = app
-TARGET = netemul
+TARGET = netemul-ng
+VERSION = 1.1
 DEPENDPATH += . \
     src \
     ui \

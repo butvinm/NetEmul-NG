@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-NetEmul is a network simulation program built with Qt4/Qt5 and C++. It allows users to visually design and simulate computer networks with various devices (computers, routers, switches, hubs) and test network protocols and configurations.
+NetEmul-NG is a network simulation program built with Qt4/Qt5 and C++. It allows users to visually design and simulate computer networks with various devices (computers, routers, switches, hubs) and test network protocols and configurations.
 
 ## Build System
 
@@ -16,7 +16,7 @@ This project uses **qmake** (.pro files) as its build system.
 - `make clean` - Clean build artifacts
 
 ### Build Structure
-- Main project file: `netemul.pro`
+- Main project file: `netemul.pro` (builds `netemul-ng` executable)
 - Build artifacts go to: `build/` directory
 - Modular .pri includes organize source code by component
 
