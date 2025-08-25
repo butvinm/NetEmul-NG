@@ -48,7 +48,7 @@ void sceneXmlReader::readNetemul()
         readNext();
         if ( isEndElement() ) break;
         if ( name() == "device" ) {
-           device::device *item = new ::device(*this);
+           ::device *item = new ::device(*this);
            item->setMenu(myScene->itemMenu() );
            myScene->registerDevice(item);
         }
