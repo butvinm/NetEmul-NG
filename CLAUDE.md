@@ -4,35 +4,36 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-NetEmul-NG is a network simulation program built with **Qt4** and C++. It allows users to visually design and simulate computer networks with various devices (computers, routers, switches, hubs) and test network protocols and configurations.
+NetEmul-NG is a network simulation program built with **Qt5** and C++. It allows users to visually design and simulate computer networks with various devices (computers, routers, switches, hubs) and test network protocols and configurations.
 
-**Important**: This project requires Qt4 and is not compatible with Qt5/Qt6 due to API changes in GUI components and includes.
+**Important**: This project has been updated to use Qt5. It is no longer compatible with Qt4 due to modernized includes and API usage.
 
 ## Build System
 
 This project uses **qmake** (.pro files) as its build system.
 
 ### Build Requirements
-- **Qt4 development libraries** (libqt4-dev, qt4-qmake, qt4-dev-tools)
-- **Qt4 OpenGL support** (libqt4-opengl-dev) 
-- **Qt4 Script support** (for JavaScript test integration)
+- **Qt5 development libraries** (qt5-base-dev, qt5-script, qt5-tools)
+- **Qt5 Widgets module** (qt5-widgets)
+- **Qt5 OpenGL support** (qt5-opengl-dev) 
+- **Qt5 Print Support module** (qt5-printsupport)
+- **Qt5 Script support** (for JavaScript test integration)
 - **C++ compiler** (g++, build-essential)
 
 ### Build Commands
-- `qmake` or `qmake-qt4` - Generate Makefiles from .pro files  
+- `qmake` - Generate Makefiles from .pro files  
 - `make` - Build the project
 - `make clean` - Clean intermediate build files (object files, MOC files)
 - `make distclean-all` - Clean all build artifacts including executables
 
-**Note**: On systems with multiple Qt versions, use `qmake-qt4` explicitly.
+**Note**: On systems with multiple Qt versions, use `qmake` (Qt5 default) or `qmake-qt5` explicitly.
 
 ### Platform Compatibility
-- **Modern Linux distributions**: Qt4 packages may not be available (removed from Ubuntu 20.04+, Fedora 30+)
-- **Legacy Linux systems**: Ubuntu 18.04 LTS and earlier, CentOS 7, Debian 9 and earlier
-- **Windows**: Qt4 installer from Qt archives or compile from source  
-- **macOS**: Homebrew Qt4 (deprecated) or compile from source
+- **Modern Linux distributions**: Qt5 packages are widely available (Ubuntu 18.04+, Fedora 28+, etc.)
+- **Windows**: Qt5 installer from Qt.io or compile from source  
+- **macOS**: Qt5 via Homebrew or official Qt installer
 
-**Important**: Qt4 reached end-of-life in 2015. For modern systems, consider porting to Qt5/Qt6.
+**Important**: This project now uses Qt5 and is compatible with modern development environments.
 
 ### Build Structure
 - Main project file: `netemul.pro` (builds `netemul-ng` executable)
@@ -119,5 +120,5 @@ This ensures users can easily identify the correct binary for their system.
 - Uses Qt's signal/slot mechanism extensively  
 - Graphics based on QGraphicsScene/QGraphicsView framework
 - Modular architecture with .pri files for each component
-- Cross-platform support (Linux/Windows/macOS) via Qt4
-- **Qt4 Compatibility**: Uses Qt4-style includes and APIs that are not compatible with Qt5/Qt6
+- Cross-platform support (Linux/Windows/macOS) via Qt5
+- **Qt5 Compatibility**: Uses Qt5 includes and APIs with widgets module support

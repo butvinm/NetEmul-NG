@@ -20,7 +20,7 @@
 #include <QMenu>
 #include <QGraphicsScene>
 #include <QGraphicsSceneContextMenuEvent>
-#include <QtDebug>
+#include <QDebug>
 #include <QPainter>
 #include "mycanvas.h"
 #include "routerdevice.h"

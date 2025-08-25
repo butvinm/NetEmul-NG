@@ -21,7 +21,7 @@
 #define APPSETTING_H
 
 #include <QString>
-#include <QtDebug>
+#include <QDebug>
 class QTranslator;
 
 static const int LANGUAGE_COUNT = 4;

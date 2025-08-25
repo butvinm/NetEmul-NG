@@ -17,22 +17,25 @@
 ** Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ** 02111-1307 USA.
 ****************************************************************************************/
-#include <QtGui/QGraphicsView>
-#include <QtGui/QApplication>
-#include <QtGui/QDockWidget>
-#include <QtGui/QMenu>
-#include <QtGui/QAction>
-#include <QtGui/QActionGroup>
-#include <QtGui/QStatusBar>
-#include <QtGui/QMessageBox>
-#include <QtGui/QMenuBar>
-#include <QtCore/QEvent>
-#include <QtGui/QCloseEvent>
-#include <QtCore/QSettings>
-#include <QtGui/QFileDialog>
-#include <QtGui/QToolBar>
-#include <QtGui/QComboBox>
-#include <QtGui/QDesktopServices>
+#include <QGraphicsView>
+#include <QApplication>
+#include <QDockWidget>
+#include <QMenu>
+#include <QAction>
+#include <QActionGroup>
+#include <QStatusBar>
+#include <QMessageBox>
+#include <QMenuBar>
+#include <QEvent>
+#include <QCloseEvent>
+#include <QSettings>
+#include <QFileDialog>
+#include <QToolBar>
+#include <QComboBox>
+#include <QDesktopServices>
+#include <QPrinter>
+#include <QPrintPreviewDialog>
+#include <QPrintDialog>
 #include "mainwindow.h"
 #include "scenecontrol.h"
 #include "settingdialog.h"
@@ -45,7 +48,7 @@
 #include "aboutwindow.h"
 
 #ifndef QT_NO_OPENGL
-#include <QtOpenGL/QtOpenGL>
+#include <QtOpenGL>
 #endif
 
 #define UPDATEACTION(A,TEXT,TIP) A->setText(TEXT); A->setToolTip(TIP); A->setStatusTip(TIP);

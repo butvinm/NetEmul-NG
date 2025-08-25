@@ -98,7 +98,8 @@ bool dhcpServerModel::insertRow(int,const QModelIndex &parent)
     staticDhcpRecord *newRecord = new staticDhcpRecord;
     newRecord->time = 0;
     table << newRecord;
-    reset();
+    beginResetModel();
+    endResetModel();
     return true;
 }
 
@@ -107,7 +108,8 @@ bool dhcpServerModel::removeRow(int row, const QModelIndex &parent)
     Q_UNUSED(parent);
     staticDhcpRecord *record = table.takeAt(row);
     if ( record ) delete record;
-    reset();
+    beginResetModel();
+    endResetModel();
     return true;
 }
 

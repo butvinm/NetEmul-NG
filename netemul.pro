@@ -36,7 +36,7 @@ INCLUDEPATH += . \
     src/commands \
     src/delegats \
     src/interfaces
-QT += script
+QT += script widgets printsupport
 
 QMAKE_POST_LINK += cd ipedit && qmake && make && cd ..
 

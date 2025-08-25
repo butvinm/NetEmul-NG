@@ -83,7 +83,8 @@ macRecord* switchModel::addToTable(const macAddress &mac ,devicePort *p , int mo
     t->port = p;
     t->mac = mac;
     table << t;
-    reset();
+    beginResetModel();
+    endResetModel();
     return t;
 }
 
@@ -101,7 +102,8 @@ void switchModel::deleteFromTable(macRecord *r)
     table.removeOne(r);
     delete r;
     lastPort = 0;
-    reset();
+    beginResetModel();
+    endResetModel();
 }
 
 void switchModel::contains(const macAddress &m , devicePort *s)

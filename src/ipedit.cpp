@@ -22,7 +22,7 @@
 #include <QKeyEvent>
 #include <QLabel>
 #include <QIntValidator>
-#include <QtDebug>
+#include <QDebug>
 #include <QHBoxLayout>
 
 /**

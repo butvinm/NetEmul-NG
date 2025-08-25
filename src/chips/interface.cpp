@@ -17,8 +17,8 @@
 ** Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
 ** 02111-1307 USA.
 ****************************************************************************************/
-#include <QtCore/QList>
-#include <QtGui/QMessageBox>
+#include <QList>
+#include <QMessageBox>
 #include "interface.h"
 #include "deviceport.h"
 #include "appsetting.h"

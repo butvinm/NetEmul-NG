@@ -1,55 +1,58 @@
 # NetEmul-NG
 
-This is a fork of the original NetEmul network simulation software, focused on fixing implementation flaws.
+This is a fork of the original NetEmul network simulation software, focused on fixing implementation flaws and updated to use Qt5.
 
 ## Compilation Instructions for Linux
 
 ### Prerequisites
 
-NetEmul requires **Qt4** development libraries. **Important**: This project is not compatible with Qt5/Qt6.
+NetEmul requires **Qt5** development libraries. **Important**: This project has been updated from Qt4 to Qt5 and is no longer compatible with Qt4.
 
 ### Platform Support
-- **Legacy Linux**: Ubuntu 18.04 LTS and earlier, CentOS 7, Debian 9 and earlier
-- **Modern Linux**: Qt4 packages removed from Ubuntu 20.04+, Fedora 30+ - requires manual compilation
-- **Windows/macOS**: Requires Qt4 from archives or manual compilation
+
+- **Modern Linux**: Qt5 packages widely available (Ubuntu 18.04+, Fedora 28+, etc.)
+- **Windows**: Qt5 installer from Qt.io or compile from source
+- **macOS**: Qt5 via Homebrew or official Qt installer
 
 Install the required packages:
 
 **Arch Linux / Manjaro:**
+
 ```bash
-sudo pacman -S qt4
+sudo pacman -S qt5-base qt5-script qt5-tools
 ```
 
-**Ubuntu / Debian (18.04 and earlier):**
-```bash
-sudo apt-get install libqt4-dev qt4-qmake qt4-dev-tools libqt4-opengl-dev
-```
+**Ubuntu / Debian:**
 
-**Note**: Qt4 packages were removed from Ubuntu 20.04+. For modern systems, consider using a container with Ubuntu 18.04 or compiling Qt4 from source.
+```bash
+sudo apt-get install qt5-qmake qtbase5-dev qtscript5-dev qt5-printsupport qttools5-dev
+```
 
 **CentOS / RHEL / Fedora:**
+
 ```bash
-sudo yum install qt-devel qt4-devel
-# or for newer versions:
-sudo dnf install qt-devel qt4-devel
+sudo dnf install qt5-qtbase-devel qt5-qtscript-devel qt5-qttools-devel
 ```
 
 ### Building
 
 1. Clone this repository:
+
 ```bash
 git clone <repository-url>
 cd netemul-ng
 ```
 
-2. Generate Makefile using Qt4 qmake:
+2. Generate Makefile using Qt5 qmake:
+
 ```bash
-qmake-qt4
-# or if qmake-qt4 is not available, try:
-# qmake
+qmake
+# or on systems with multiple Qt versions:
+# qmake-qt5
 ```
 
 3. Build the project:
+
 ```bash
 make
 ```
@@ -73,15 +76,17 @@ This will install NetEmul-NG to `/usr/local/bin/` by default.
 ### Troubleshooting
 
 **Common Build Issues:**
-- **Qt Version**: Ensure you're using Qt4 qmake, not Qt5/Qt6
-- **Header Errors**: Verify Qt4 development packages are installed
+
+- **Qt Version**: Ensure you're using Qt5 qmake
+- **Header Errors**: Verify Qt5 development packages are installed
+- **Missing Modules**: Ensure qt5-widgets, qt5-script, and qt5-printsupport are installed
 - **Plugin Build**: The ipedit designer plugin may fail to build (this is non-essential)
-- **Modern Systems**: Qt4 incompatible with recent compilers - use legacy system or container
 
 **Qt Version Check:**
+
 ```bash
 qmake --version
-# Should show Qt version 4.x.x
+# Should show Qt version 5.x.x
 ```
 
 ## Testing
@@ -89,9 +94,10 @@ qmake --version
 NetEmul includes both unit tests and integration tests:
 
 ### Unit Tests
+
 ```bash
 cd test
-qmake-qt4  # Use Qt4 qmake
+qmake  # Use Qt5 qmake
 make
 ./pusk  # Runs all unit tests
 ```
@@ -99,6 +105,7 @@ make
 **Test Results**: 6 test suites, 31 total tests covering MAC addresses, IP addresses, frames, packets, chips, and routing models.
 
 ### Integration Tests
+
 JavaScript-based acceptance tests are available in the `scripts/` directory and can be run via the application's test menu.
 
 ## Development
@@ -114,8 +121,9 @@ See `GPL-2` file for the complete license text.
 ## Acknowledgments
 
 **Original Authors:**
-- **Semenov Pavel** - Original developer and architect
-- **Omilaeva Anastasia** - Original developer
+
+- **Semenov Pavel** - Original project admin and developer
+- **Omilaeva Anastasia** - Original project developer
 
 This is a fork/continuation of the original NetEmul project, created for educational and research purposes. All credit for the original design and implementation goes to Semenov Pavel and Omilaeva Anastasia.
 
@@ -126,13 +134,4 @@ The original NetEmul was developed as a network simulation tool for educational 
 
 ---
 
-*This fork includes build fixes and comprehensive testing while preserving Qt4 compatibility and the original functionality and design.*
-
-## Legacy Software Notice
-
-**Qt4 End-of-Life**: Qt4 reached end-of-life in 2015 and is not supported on modern systems. This software is maintained for:
-- Educational purposes and network simulation learning
-- Legacy system compatibility  
-- Historical preservation of the original NetEmul design
-
-**Modern Alternative**: Consider migrating to Qt5/Qt6-based network simulation tools for production use on contemporary systems.
+_This fork includes build fixes, comprehensive testing, and Qt5 modernization while preserving the original functionality and design._

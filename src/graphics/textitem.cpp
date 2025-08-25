@@ -19,13 +19,15 @@
 ****************************************************************************************/
 #include "textitem.h"
 #include <QPainter>
+#include <QGraphicsScene>
 
 /*!
   Передает параметры предку и делает надпись перемещаемой и выделяемой.
 */
 textItem::textItem(QPointF p, QGraphicsItem *parent /* = 0 */ , QGraphicsScene *scene /* = 0 */)
-        : QGraphicsTextItem(parent,scene)
+        : QGraphicsTextItem(parent)
 {
+     if(scene) scene->addItem(this);
      setPos(p);
      setTextInteractionFlags(Qt::TextEditorInteraction);
      setZValue(1000.0);
