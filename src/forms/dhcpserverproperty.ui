@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dhspServerProperty</class>
+ <widget class="QDialog" name="dhspServerProperty">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>462</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>DHCP server's properties</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Choose interface:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="cb_interface">
+       <property name="minimumSize">
+        <size>
+         <width>100</width>
+         <height>0</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>Static:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTableView" name="tv_static">
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_add">
+       <property name="text">
+        <string>Add</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../../netemul.qrc">
+         <normaloff>:/im/images/edit_add.png</normaloff>:/im/images/edit_add.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_del">
+       <property name="text">
+        <string>Delete</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../../netemul.qrc">
+         <normaloff>:/im/images/edit_remove.png</normaloff>:/im/images/edit_remove.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="cb_dynamic">
+     <property name="text">
+      <string>Dynamic:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="lb_term">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="text">
+      <string>Lease term:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QSpinBox" name="sb_time">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>70</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="suffix">
+      <string> s</string>
+     </property>
+     <property name="minimum">
+      <number>300</number>
+     </property>
+     <property name="maximum">
+      <number>3600</number>
+     </property>
+     <property name="singleStep">
+      <number>10</number>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="ipEdit" name="ie_begin" native="true">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="toolTip">
+        <string>Ip address</string>
+       </property>
+       <property name="whatsThis">
+        <string>The field for ip-address.</string>
+       </property>
+       <property name="labelText" stdset="0">
+        <string>From:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="ipEdit" name="ie_end" native="true">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="toolTip">
+        <string>Ip address</string>
+       </property>
+       <property name="whatsThis">
+        <string>The field for ip-address.</string>
+       </property>
+       <property name="labelText" stdset="0">
+        <string>to:</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="ipEdit" name="ie_mask" native="true">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="toolTip">
+        <string>Ip address</string>
+       </property>
+       <property name="whatsThis">
+        <string>The field for ip-address.</string>
+       </property>
+       <property name="labelText" stdset="0">
+        <string>Mask:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="ipEdit" name="ie_gatew" native="true">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="toolTip">
+        <string>Ip address</string>
+       </property>
+       <property name="whatsThis">
+        <string>The field for ip-address.</string>
+       </property>
+       <property name="labelText" stdset="0">
+        <string>Gateway:</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string>Wating time for request from dhcp-client:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QSpinBox" name="sb_waitingTime">
+     <property name="maximumSize">
+      <size>
+       <width>70</width>
+       <height>16777215</height>
+      </size>
+     </property>
+     <property name="minimum">
+      <number>60</number>
+     </property>
+     <property name="maximum">
+      <number>300</number>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_ok">
+       <property name="text">
+        <string>Ok</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../../netemul.qrc">
+         <normaloff>:/im/images/ok.png</normaloff>:/im/images/ok.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_cancel">
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../../netemul.qrc">
+         <normaloff>:/im/images/not.png</normaloff>:/im/images/not.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ipEdit</class>
+   <extends>QWidget</extends>
+   <header>ipedit.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../../netemul.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>btn_cancel</sender>
+   <signal>clicked()</signal>
+   <receiver>dhspServerProperty</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>789</x>
+     <y>451</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>49</x>
+     <y>284</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_add</sender>
+   <signal>clicked()</signal>
+   <receiver>dhspServerProperty</receiver>
+   <slot>addRecord()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>694</x>
+     <y>214</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>234</x>
+     <y>228</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_del</sender>
+   <signal>clicked()</signal>
+   <receiver>dhspServerProperty</receiver>
+   <slot>deleteRecord()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>789</x>
+     <y>214</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>260</x>
+     <y>234</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>cb_dynamic</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>dhspServerProperty</receiver>
+   <slot>changeState(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>42</x>
+     <y>244</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>114</x>
+     <y>326</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_ok</sender>
+   <signal>clicked()</signal>
+   <receiver>dhspServerProperty</receiver>
+   <slot>apply()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>693</x>
+     <y>451</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>540</x>
+     <y>364</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>addRecord()</slot>
+  <slot>deleteRecord()</slot>
+  <slot>changeState(bool)</slot>
+  <slot>apply()</slot>
+ </slots>
+</ui>

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>programmDialog</class>
+ <widget class="QDialog" name="programmDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>250</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>250</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Programs</string>
+  </property>
+  <layout class="QHBoxLayout" name="horizontalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="lb_prog">
+         <property name="text">
+          <string>Installed programs</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QListWidget" name="list"/>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_add">
+         <property name="text">
+          <string>Add</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/im/images/edit_add.png</normaloff>:/im/images/edit_add.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_settings">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>Settings</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/im/images/setting.png</normaloff>:/im/images/setting.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_remove">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>Delete</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/im/images/edit_remove.png</normaloff>:/im/images/edit_remove.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_ok">
+         <property name="text">
+          <string>Ok</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/im/images/ok.png</normaloff>:/im/images/ok.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="btn_cancel">
+         <property name="text">
+          <string>Cancel</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/im/images/not.png</normaloff>:/im/images/not.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>btn_cancel</sender>
+   <signal>clicked()</signal>
+   <receiver>programmDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>393</x>
+     <y>243</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>188</x>
+     <y>245</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_ok</sender>
+   <signal>clicked()</signal>
+   <receiver>programmDialog</receiver>
+   <slot>apply()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>393</x>
+     <y>214</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>180</x>
+     <y>277</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_add</sender>
+   <signal>clicked()</signal>
+   <receiver>programmDialog</receiver>
+   <slot>add()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>343</x>
+     <y>63</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>313</x>
+     <y>18</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_remove</sender>
+   <signal>clicked()</signal>
+   <receiver>programmDialog</receiver>
+   <slot>remove()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>393</x>
+     <y>132</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>315</x>
+     <y>135</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>btn_settings</sender>
+   <signal>clicked()</signal>
+   <receiver>programmDialog</receiver>
+   <slot>settings()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>360</x>
+     <y>89</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>386</x>
+     <y>23</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>list</sender>
+   <signal>currentRowChanged(int)</signal>
+   <receiver>programmDialog</receiver>
+   <slot>programmChanged()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>140</x>
+     <y>120</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>351</x>
+     <y>13</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>list</sender>
+   <signal>itemClicked(QListWidgetItem*)</signal>
+   <receiver>programmDialog</receiver>
+   <slot>stateChanged(QListWidgetItem*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>232</x>
+     <y>109</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>335</x>
+     <y>30</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>apply()</slot>
+  <slot>add()</slot>
+  <slot>remove()</slot>
+  <slot>settings()</slot>
+  <slot>programmChanged()</slot>
+  <slot>stateChanged(QListWidgetItem*)</slot>
+ </slots>
+</ui>
