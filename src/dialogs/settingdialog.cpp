@@ -52,8 +52,6 @@ void settingDialog::currentValues()
 
     languageBox->setCurrentIndex( appSetting::language() );
 
-    themeBox->setCurrentIndex( appSetting::theme() );
-
     sb_send->setValue(appSetting::sendingNum());
 
     sb_waitingTime->setValue(appSetting::waitingTime());
@@ -83,7 +81,6 @@ void settingDialog::apply()
     appSetting::setTtlMac( sp_ttlMac->value() );
     appSetting::setAnimateSpeed(sl_speed->value());
     appSetting::setLanguage( languageBox->currentIndex() );
-    appSetting::setTheme( themeBox->currentIndex() );
     appSetting::setSendingNum(sb_send->value());
     appSetting::setWaitingTime(sb_waitingTime->value());
     appSetting::setHasOpengl( cb_opengl->isChecked() );

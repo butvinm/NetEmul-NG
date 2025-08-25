@@ -83,7 +83,6 @@ MainWindow::MainWindow(QWidget *parent, QStringList param) : QMainWindow(parent)
     setOpenglMode( appSetting::hasOpengl() );
     cableLabelAct->setChecked( appSetting::isShowLabel() );
     canva->setShowLabels( appSetting::isShowLabel() );
-    applyTheme();
     autosaveTimer = new QTimer(this);
     autosaveTimer->start( appSetting::autosaveInterval() * 60000 );
     connect( autosaveTimer , SIGNAL(timeout()) , SLOT(autosave()) );
@@ -535,7 +534,6 @@ void MainWindow::setting()
     autosaveTimer->start( appSetting::autosaveInterval() * 60000 );
     cableLabelAct->setChecked( appSetting::isShowLabel() );
     canva->setShowLabels( appSetting::isShowLabel() );
-    applyTheme();
 }
 
 void MainWindow::setOpenglMode(bool mode)
@@ -773,56 +771,4 @@ void MainWindow::changeEvent(QEvent *e)
     }
 }
 
-void MainWindow::applyTheme()
-{
-    int theme = appSetting::theme();
-    switch (theme) {
-        case 0: // System default
-            QApplication::setStyle(QApplication::style()->objectName());
-            QApplication::setPalette(QApplication::style()->standardPalette());
-            break;
-        case 1: // Light theme
-            QApplication::setStyle("Fusion");
-            {
-                QPalette lightPalette;
-                lightPalette.setColor(QPalette::Window, QColor(240, 240, 240));
-                lightPalette.setColor(QPalette::WindowText, Qt::black);
-                lightPalette.setColor(QPalette::Base, QColor(255, 255, 255));
-                lightPalette.setColor(QPalette::AlternateBase, QColor(245, 245, 245));
-                lightPalette.setColor(QPalette::ToolTipBase, Qt::white);
-                lightPalette.setColor(QPalette::ToolTipText, Qt::black);
-                lightPalette.setColor(QPalette::Text, Qt::black);
-                lightPalette.setColor(QPalette::Button, QColor(240, 240, 240));
-                lightPalette.setColor(QPalette::ButtonText, Qt::black);
-                lightPalette.setColor(QPalette::BrightText, Qt::red);
-                lightPalette.setColor(QPalette::Link, QColor(42, 130, 218));
-                lightPalette.setColor(QPalette::Highlight, QColor(42, 130, 218));
-                lightPalette.setColor(QPalette::HighlightedText, Qt::white);
-                QApplication::setPalette(lightPalette);
-            }
-            break;
-        case 2: // Dark theme
-            QApplication::setStyle("Fusion");
-            {
-                QPalette darkPalette;
-                darkPalette.setColor(QPalette::Window, QColor(53, 53, 53));
-                darkPalette.setColor(QPalette::WindowText, Qt::white);
-                darkPalette.setColor(QPalette::Base, QColor(25, 25, 25));
-                darkPalette.setColor(QPalette::AlternateBase, QColor(53, 53, 53));
-                darkPalette.setColor(QPalette::ToolTipBase, Qt::white);
-                darkPalette.setColor(QPalette::ToolTipText, Qt::white);
-                darkPalette.setColor(QPalette::Text, Qt::white);
-                darkPalette.setColor(QPalette::Button, QColor(53, 53, 53));
-                darkPalette.setColor(QPalette::ButtonText, Qt::white);
-                darkPalette.setColor(QPalette::BrightText, Qt::red);
-                darkPalette.setColor(QPalette::Link, QColor(42, 130, 218));
-                darkPalette.setColor(QPalette::Highlight, QColor(42, 130, 218));
-                darkPalette.setColor(QPalette::HighlightedText, Qt::black);
-                QApplication::setPalette(darkPalette);
-            }
-            break;
-        default:
-            break;
-    }
-}
 
