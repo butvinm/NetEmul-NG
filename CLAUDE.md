@@ -56,6 +56,22 @@ Uses Qt Script engine for automation and testing. JavaScript files can:
 - Configure device properties (IP addresses, routing tables)
 - Send test packets and verify network behavior
 
+## Release Management
+
+### Binary Naming Convention
+When creating releases, always name binaries with architecture specification:
+
+**Format**: `netemul-ng-{platform}-{architecture}[.extension]`
+
+**Examples**:
+- `netemul-ng-linux-x86_64` - Linux 64-bit
+- `netemul-ng-linux-aarch64` - Linux ARM 64-bit  
+- `netemul-ng-windows-x86_64.exe` - Windows 64-bit
+- `netemul-ng-macos-x86_64` - macOS Intel
+- `netemul-ng-macos-arm64` - macOS Apple Silicon
+
+This ensures users can easily identify the correct binary for their system.
+
 ## Development Notes
 
 - Russian comments and documentation throughout codebase
