@@ -4,16 +4,35 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-NetEmul-NG is a network simulation program built with Qt4/Qt5 and C++. It allows users to visually design and simulate computer networks with various devices (computers, routers, switches, hubs) and test network protocols and configurations.
+NetEmul-NG is a network simulation program built with **Qt4** and C++. It allows users to visually design and simulate computer networks with various devices (computers, routers, switches, hubs) and test network protocols and configurations.
+
+**Important**: This project requires Qt4 and is not compatible with Qt5/Qt6 due to API changes in GUI components and includes.
 
 ## Build System
 
 This project uses **qmake** (.pro files) as its build system.
 
+### Build Requirements
+- **Qt4 development libraries** (libqt4-dev, qt4-qmake, qt4-dev-tools)
+- **Qt4 OpenGL support** (libqt4-opengl-dev) 
+- **Qt4 Script support** (for JavaScript test integration)
+- **C++ compiler** (g++, build-essential)
+
 ### Build Commands
-- `qmake` - Generate Makefiles from .pro files
+- `qmake` or `qmake-qt4` - Generate Makefiles from .pro files  
 - `make` - Build the project
-- `make clean` - Clean build artifacts
+- `make clean` - Clean intermediate build files (object files, MOC files)
+- `make distclean-all` - Clean all build artifacts including executables
+
+**Note**: On systems with multiple Qt versions, use `qmake-qt4` explicitly.
+
+### Platform Compatibility
+- **Modern Linux distributions**: Qt4 packages may not be available (removed from Ubuntu 20.04+, Fedora 30+)
+- **Legacy Linux systems**: Ubuntu 18.04 LTS and earlier, CentOS 7, Debian 9 and earlier
+- **Windows**: Qt4 installer from Qt archives or compile from source  
+- **macOS**: Homebrew Qt4 (deprecated) or compile from source
+
+**Important**: Qt4 reached end-of-life in 2015. For modern systems, consider porting to Qt5/Qt6.
 
 ### Build Structure
 - Main project file: `netemul.pro` (builds `netemul-ng` executable)
@@ -100,4 +119,5 @@ This ensures users can easily identify the correct binary for their system.
 - Uses Qt's signal/slot mechanism extensively  
 - Graphics based on QGraphicsScene/QGraphicsView framework
 - Modular architecture with .pri files for each component
-- Cross-platform support (Linux/Windows/macOS) via Qt
+- Cross-platform support (Linux/Windows/macOS) via Qt4
+- **Qt4 Compatibility**: Uses Qt4-style includes and APIs that are not compatible with Qt5/Qt6

@@ -24,8 +24,29 @@ Makefile.*
 # Executables
 netemul
 netemul.exe
+netemul-ng
+netemul-ng-*
 debug/
 release/
+
+# qmake artifacts
+.qmake.stash
+moc_predefs.h
+
+# Test executables
+test/boxchip/boxchip
+test/frame/frame
+test/ipaddress/ipaddress
+test/ippacket/ippacket
+test/mac/mac
+test/routemodel/routemodel
+
+# Test temporary files
+test/*/test*
+test/*/.qmake.stash
+
+# ipedit plugin
+ipedit/.qmake.stash
 
 # IDE files
 .vscode/

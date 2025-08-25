@@ -136,3 +136,7 @@ unix {
 DEFINES += DOC_PATH=\\\"$${DOC_PATH}\\\"
 DEFINES += SCRIPT_PATH=\\\"$${SCRIPT_PATH}\\\"
 DEFINES += TRANSLATIONS_PATH=\\\"$${TRANSLATIONS_PATH}\\\"
+
+# Custom clean targets
+QMAKE_EXTRA_TARGETS += distclean-all
+distclean-all.commands = make clean && rm -f $(TARGET) netemul-ng-* .qmake.stash && cd test && make clean-all 2>/dev/null || true
