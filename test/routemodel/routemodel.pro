@@ -5,8 +5,10 @@ QT -= gui
 QT += testlib
 TARGET = routemodel
 CONFIG += console
+DEFINES += __TESTING__
 INCLUDEPATH += ../../src/models \
-                ../../src
+                ../../src \
+                ../../src/tools
 TEMPLATE = app
 SOURCES += main.cpp \
     ../../src/models/routemodel.cpp \

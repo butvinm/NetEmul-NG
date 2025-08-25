@@ -116,7 +116,8 @@ routeRecord* routeModel::addToTable(routeRecord *r)
 {
     table << r;
     qStableSort(table.begin(),table.end(),routeGreat);    
-    reset();
+    beginResetModel();
+    endResetModel();
     emit recordAdding(r,addNet);
     return r;    
 }
@@ -142,7 +143,8 @@ void routeModel::deleteFromTable(routeRecord *r)
     table.removeOne(r);
     delete r;
     qStableSort(table.begin(),table.end(),routeGreat);
-    reset();
+    beginResetModel();
+    endResetModel();
 }
 //--------------------------------------------------------------
 /*!
@@ -238,6 +240,7 @@ void routeModel::write(QDataStream &stream) const
         stream << *i;
 }
 
+#ifndef __TESTING__
 void routeModel::writeXml(sceneXmlWriter &stream) const
 {
     foreach ( routeRecord *i , table )
@@ -247,6 +250,7 @@ void routeModel::writeXml(sceneXmlWriter &stream) const
             stream.writeEndElement();
         }
 }
+#endif
 
 void routeModel::read(QDataStream &stream)
 {
@@ -261,6 +265,7 @@ void routeModel::read(QDataStream &stream)
     }
 }
 
+#ifndef __TESTING__
 void routeModel::readXml(sceneXmlReader &stream)
 {
     Q_ASSERT( stream.isStartElement() && stream.name() == "routetable" );
@@ -276,10 +281,12 @@ void routeModel::readXml(sceneXmlReader &stream)
         }
     }
 }
+#endif
 
 //----------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------
 
+#ifndef __TESTING__
 void routeRecord::writeXml(sceneXmlWriter &stream) const
 {
     stream.writeTextElement("destination",dest.toString() );
@@ -288,7 +295,9 @@ void routeRecord::writeXml(sceneXmlWriter &stream) const
     stream.writeTextElement("metric",QString::number(metric) );
     stream.writeTextElement("out", out.toString() );
 }
+#endif
 
+#ifndef __TESTING__
 void routeRecord::readXml(sceneXmlReader &stream)
 {
     while ( !stream.atEnd() ) {
@@ -301,4 +310,5 @@ void routeRecord::readXml(sceneXmlReader &stream)
         else if ( stream.name() == "out" ) out.setIp( stream.readElementText() );
     }
 }
+#endif
 

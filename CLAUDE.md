@@ -22,16 +22,38 @@ This project uses **qmake** (.pro files) as its build system.
 
 ## Testing
 
-### Unit Tests
-Located in `test/` directory with individual test programs:
-- Run all tests: `cd test && ./pusk` (script that runs all test programs)
-- Build tests: `cd test && qmake && make`
-- Individual test directories: `boxchip/`, `frame/`, `ipaddress/`, etc.
+The project implements a **dual testing approach**:
 
-### Integration Tests  
-JavaScript-based acceptance tests in `scripts/` directory:
-- `arp.js`, `dhcp.js`, `hub.js`, `checknet.js`, `big.js`
-- Run via application's test menu
+### Unit Tests
+Located in `test/` directory with individual test programs using **Qt Test framework**:
+- **Build tests**: `cd test && qmake && make`
+- **Run all tests**: `cd test && ./pusk` (bash script runs all tests with `-silent` flag)
+- **Individual tests**: `cd <test_dir> && ./<test_name>` for detailed output
+- **Test components**: 
+  - `mac/` - MAC address functionality
+  - `ipaddress/` - IP address handling
+  - `frame/` - Network frame operations  
+  - `boxchip/` - Device port/chip logic
+  - `ippacket/` - IP packet processing
+  - `routemodel/` - Routing table model
+  - `ripprogramm/` - RIP routing protocol
+
+### Integration/Acceptance Tests  
+JavaScript-based tests in `scripts/` directory using **Qt Script engine**:
+- **Files**: `arp.js`, `dhcp.js`, `hub.js`, `checknet.js`, `big.js`
+- **Execution**: Via application's test menu (testdialog.cpp)
+- **Capabilities**:
+  - Programmatic network topology creation
+  - Device configuration (IP addresses, routing)
+  - Packet transmission simulation  
+  - Result validation through packet counters
+  - Scene manipulation and saving
+
+### Testing Infrastructure
+- Special `__TESTING__` define for test builds
+- Qt Script integration for device interaction
+- Automated test execution via shell scripts
+- Silent mode support for batch testing
 
 ## Architecture
 

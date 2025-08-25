@@ -22,8 +22,10 @@
 
 #include <QAbstractTableModel>
 #include <QStringList>
+#ifndef __TESTING__
 #include "scenexmlreader.h"
 #include "scenexmlwriter.h"
+#endif
 #include "ipaddress.h"
 
 struct routeRecord {
@@ -39,8 +41,10 @@ public:
     QString modeString() const;
     friend QDataStream& operator<<(QDataStream &stream, const routeRecord &rec);
     friend QDataStream& operator>>(QDataStream &stream, routeRecord &rec);
+#ifndef __TESTING__
     void writeXml(sceneXmlWriter &stream) const;
     void readXml(sceneXmlReader &stream);
+#endif
 };
 
 typedef QList<routeRecord*> routeTable;
@@ -72,8 +76,10 @@ public:
     void checkConnectedNet(ipAddress ip, ipAddress mask, bool add);
     bool isConnectedMode(QModelIndex curr);
     void write(QDataStream &stream) const;
+#ifndef __TESTING__
     void writeXml(sceneXmlWriter &stream) const;
     void readXml(sceneXmlReader &stream);
+#endif
     void read(QDataStream &stream);
 signals:
     void recordAdding(routeRecord*,int);
