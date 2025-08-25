@@ -197,6 +197,38 @@
            </item>
           </widget>
          </item>
+         <item>
+          <widget class="QLabel" name="label_theme">
+           <property name="text">
+            <string>Theme:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="themeBox">
+           <property name="maximumSize">
+            <size>
+             <width>200</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <item>
+            <property name="text">
+             <string>System</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Light</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>Dark</string>
+            </property>
+           </item>
+          </widget>
+         </item>
         </layout>
        </item>
        <item row="1" column="0">
@@ -1060,6 +1092,22 @@
     <hint type="sourcelabel">
      <x>111</x>
      <y>148</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>40</x>
+     <y>290</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>themeBox</sender>
+   <signal>currentIndexChanged(int)</signal>
+   <receiver>settingDialog</receiver>
+   <slot>applyEnable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>111</x>
+     <y>200</y>
     </hint>
     <hint type="destinationlabel">
      <x>40</x>

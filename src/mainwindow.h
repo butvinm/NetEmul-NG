@@ -53,6 +53,7 @@ public:
     void setEnabledFileItems(bool cur);
     void writeSetting();
     void readSetting();
+    void applyTheme();
 public slots:
     void newFile();  // Слот создания нового файла
     void closeFile();

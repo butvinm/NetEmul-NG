@@ -40,6 +40,7 @@ bool appSetting::_hasOpengl = false;
 bool appSetting::_autosave = false;
 int appSetting::_autosaveInterval = 10;
 bool appSetting::_showLabel = true;
+int appSetting::_theme = 0;
 QString appSetting::_scriptPath = "";
 QTranslator* appSetting::mas[LANGUAGE_COUNT*2];
 
@@ -64,6 +65,7 @@ void appSetting::defaultNums()
     _autosave = false;
     _autosaveInterval = 10;
     _showLabel = true;
+    _theme = 0;
     for ( int i = 1 ; i < LANGUAGE_COUNT*2 ; i++)
         QCoreApplication::removeTranslator(mas[i]);
 }
@@ -98,6 +100,7 @@ void appSetting::readSetting()
     _autosave = setting.value("main/autosave",false).toBool();
     _autosaveInterval = setting.value("main/autosaveInterval",10).toInt();
     _showLabel = setting.value("main/showlabel",true).toBool();
+    _theme = setting.value("main/theme",0).toInt();
 #endif
 }
 
@@ -124,6 +127,7 @@ void appSetting::writeSetting()
     setting.setValue("main/autosave",_autosave);
     setting.setValue("main/autosaveInterval",_autosaveInterval);
     setting.setValue("main/showlabel", _showLabel);
+    setting.setValue("main/theme", _theme);
 #endif
 }
 

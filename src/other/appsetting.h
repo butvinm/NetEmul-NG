@@ -46,6 +46,8 @@ public:
     static void setHasOpengl(bool b) { _hasOpengl = b; }
     static bool isShowLabel() { return _showLabel; }
     static void setShowLabel(bool b) { _showLabel = b; }
+    static int theme() { return _theme; }
+    static void setTheme(int t) { _theme = t; }
     static bool defaultSwitchManual() { return _defaultSwitchManual; }
     static void setScriptPath(const QString path) { _scriptPath = path; }
     static QString scriptPath() { if ( !_scriptPath.endsWith("/") ) _scriptPath.append("/");
@@ -92,6 +94,7 @@ private:
     static QString _scriptPath;
     static bool _hasOpengl;
     static bool _showLabel;
+    static int _theme;
 protected:
     appSetting();
     ~appSetting();

@@ -64,6 +64,7 @@ void textItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,Q
 {
     painter->setBrush(Qt::yellow);
     painter->drawRoundedRect(boundingRect(), 5, 5);
+    setDefaultTextColor(Qt::black);
     QGraphicsTextItem::paint(painter,option,widget);
 }
 //----------------------------------------------------------------------------

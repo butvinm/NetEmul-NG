@@ -16,6 +16,7 @@ void cableTextItem::paint(QPainter *painter,const QStyleOptionGraphicsItem *opti
     updatePosition();
     painter->setBrush( QBrush( QColor(255,255,255,224) ) );
     painter->drawRoundedRect(boundingRect(), 5, 5);
+    setDefaultTextColor(Qt::black);
     QGraphicsTextItem::paint(painter,option,widget);
 }
 
