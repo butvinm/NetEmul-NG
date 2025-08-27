@@ -122,6 +122,18 @@ This ensures users can easily identify the correct binary for their system.
 
 Minor features, bug fixes, or UI changes should NOT trigger application version increments. The application version is specifically used for file format compatibility checking.
 
+### Release Process
+**Publishing Releases**: Follow these steps to publish a new release:
+
+1. **Prerequisites**: Ensure version has been bumped in `netemul.pro` via PR (e.g., 1.2 → 1.2.1 for patch)
+2. **Build & Test**: Run `qmake && make -j8` to build and `cd test && ./pusk` to run tests
+3. **GitHub Release**: Use `gh release create` with binary asset (creates tag automatically):
+   ```bash
+   gh release create vX.Y.Z --title "NetEmul-NG vX.Y.Z" --notes "Release notes" netemul-ng-linux-x86_64
+   ```
+
+**Release Notes Guidelines**: Focus only on new features and significant changes. Omit internal refactoring, documentation updates, or version management changes unless they directly impact users.
+
 ## Development Notes
 
 - Russian comments and documentation throughout codebase
