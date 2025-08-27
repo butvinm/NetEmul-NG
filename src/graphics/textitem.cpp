@@ -19,13 +19,15 @@
 ****************************************************************************************/
 #include "textitem.h"
 #include <QPainter>
+#include <QGraphicsScene>
 
 /*!
   Передает параметры предку и делает надпись перемещаемой и выделяемой.
 */
 textItem::textItem(QPointF p, QGraphicsItem *parent /* = 0 */ , QGraphicsScene *scene /* = 0 */)
-        : QGraphicsTextItem(parent,scene)
+        : QGraphicsTextItem(parent)
 {
+     if(scene) scene->addItem(this);
      setPos(p);
      setTextInteractionFlags(Qt::TextEditorInteraction);
      setZValue(1000.0);
@@ -60,8 +62,9 @@ void textItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 */
 void textItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget)
 {
-    painter->setBrush(Qt::yellow);
+    painter->setBrush(QColor("#FFFF88"));
     painter->drawRoundedRect(boundingRect(), 5, 5);
+    setDefaultTextColor(Qt::black);
     QGraphicsTextItem::paint(painter,option,widget);
 }
 //----------------------------------------------------------------------------

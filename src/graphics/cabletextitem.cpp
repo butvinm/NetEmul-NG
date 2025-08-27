@@ -1,10 +1,12 @@
 #include "cabletextitem.h"
 #include "cabledev.h"
 #include <QPainter>
+#include <QGraphicsScene>
 
 
-cableTextItem::cableTextItem(QGraphicsItem *parent /*= 0*/ , QGraphicsScene *scene /*= 0*/) : QGraphicsTextItem(parent,scene)
+cableTextItem::cableTextItem(QGraphicsItem *parent /*= 0*/ , QGraphicsScene *scene /*= 0*/) : QGraphicsTextItem(parent)
 {
+    if(scene) scene->addItem(this);
     setZValue(1005);
     setFont(QFont("Times", 8));
 }
@@ -12,8 +14,9 @@ cableTextItem::cableTextItem(QGraphicsItem *parent /*= 0*/ , QGraphicsScene *sce
 void cableTextItem::paint(QPainter *painter,const QStyleOptionGraphicsItem *option,QWidget *widget)
 {
     updatePosition();
-    painter->setBrush( QBrush( QColor(255,255,255,224) ) );
+    painter->setBrush( QBrush( QColor(50,50,50,224) ) );
     painter->drawRoundedRect(boundingRect(), 5, 5);
+    setDefaultTextColor(Qt::white);
     QGraphicsTextItem::paint(painter,option,widget);
 }
 

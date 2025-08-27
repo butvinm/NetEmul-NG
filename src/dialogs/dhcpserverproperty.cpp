@@ -51,7 +51,7 @@ void dhcpServerProperty::setProgramm(dhcpServerProgramm *prog)
     myModel = myProgramm->dhcpModel();
     tv_static->setModel( myModel );
     QHeaderView *h = tv_static->horizontalHeader();
-    h->setResizeMode( QHeaderView::Stretch );
+    h->setSectionResizeMode( QHeaderView::Stretch );
     cb_dynamic->setChecked(myProgramm->dynamic());
     sb_time->setValue(myProgramm->time());
     ie_begin->setText(myProgramm->beginIp());

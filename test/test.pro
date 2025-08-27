@@ -13,3 +13,7 @@ SUBDIRS = mac \
 	boxchip \
 	routemodel 
 # Input
+
+# Custom clean targets
+QMAKE_EXTRA_TARGETS += clean-all
+clean-all.commands = make clean && rm -f */$(TARGET) */.qmake.stash */moc_* */test* .qmake.stash

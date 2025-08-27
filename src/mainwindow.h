@@ -20,10 +20,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QtGui/QMainWindow>
-#if QT_VERSION < 0x040500
+#include <QMainWindow>
 #include <QIcon>
-#endif
 
 class myCanvas;
 class settingDialog;

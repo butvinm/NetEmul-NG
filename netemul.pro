@@ -15,7 +15,7 @@ include(src/delegats/delegats.pri)
 include(src/interfaces/interfaces.pri)
 TEMPLATE = app
 TARGET = netemul-ng
-VERSION = 1.1
+VERSION = 1.2
 DEPENDPATH += . \
     src \
     ui \
@@ -36,9 +36,9 @@ INCLUDEPATH += . \
     src/commands \
     src/delegats \
     src/interfaces
-QT += script
+QT += script widgets printsupport
 
-QMAKE_POST_LINK += cd ipedit && qmake && make && cd ..
+# QMAKE_POST_LINK += cd ipedit && qmake && make && cd ..
 
 # Default translations path
 TRANSLATIONS_PATH = "translation"
@@ -136,3 +136,7 @@ unix {
 DEFINES += DOC_PATH=\\\"$${DOC_PATH}\\\"
 DEFINES += SCRIPT_PATH=\\\"$${SCRIPT_PATH}\\\"
 DEFINES += TRANSLATIONS_PATH=\\\"$${TRANSLATIONS_PATH}\\\"
+
+# Custom clean targets
+QMAKE_EXTRA_TARGETS += distclean-all
+distclean-all.commands = make clean && rm -f $(TARGET) netemul-ng-* .qmake.stash && cd test && make clean-all 2>/dev/null || true

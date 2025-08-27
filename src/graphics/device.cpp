@@ -20,8 +20,9 @@
 #include <QMenu>
 #include <QGraphicsScene>
 #include <QGraphicsSceneContextMenuEvent>
-#include <QtDebug>
+#include <QDebug>
 #include <QPainter>
+#include <QApplication>
 #include "mycanvas.h"
 #include "routerdevice.h"
 #include "device.h"
@@ -93,7 +94,22 @@ void device::paint(QPainter *painter,const QStyleOptionGraphicsItem *option,QWid
     foreach ( QGraphicsItem* item , collides)
         if ( item->type() != device::Type ) collides.removeOne(item);
     QLinearGradient tempGrad(device::rectDevX , device::rectDevY ,-device::rectDevX,-device::rectDevY);
-    tempGrad.setColorAt(0,Qt::white);
+    
+    // Detect if system is using dark theme
+    QPalette systemPalette = QApplication::palette();
+    bool isDarkTheme = systemPalette.color(QPalette::Window).lightness() < 128;
+    
+    // Choose colors based on theme
+    QColor lightColor, darkColor;
+    if (isDarkTheme) {
+        lightColor = QColor(70, 70, 70);  // Dark gray
+        darkColor = QColor(45, 45, 45);   // Darker gray
+    } else {
+        lightColor = Qt::white;
+        darkColor = Qt::white;
+    }
+    
+    tempGrad.setColorAt(0, lightColor);
     if (isSelected()) {
         if (!collides.isEmpty())
             tempGrad.setColorAt(1,Qt::red);
@@ -102,8 +118,8 @@ void device::paint(QPainter *painter,const QStyleOptionGraphicsItem *option,QWid
         painter->setPen(Qt::darkBlue);
     }
     else {
-        painter->setPen(Qt::black); // А иначе черный
-        tempGrad.setColorAt(1,Qt::white);
+        painter->setPen(isDarkTheme ? Qt::lightGray : Qt::black);
+        tempGrad.setColorAt(1, darkColor);
     }
     painter->setBrush(QBrush(tempGrad));
     painter->drawRoundedRect(devRect,5,5);

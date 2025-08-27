@@ -25,7 +25,7 @@
 #include <QSlider>
 #include <QSpinBox>
 #include <QBoxLayout>
-#include <QtDebug>
+#include <QDebug>
 #include <QCheckBox>
 #include <QMessageBox>
 #include "senddialog.h"

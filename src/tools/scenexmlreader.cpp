@@ -2,7 +2,7 @@
 #include "mycanvas.h"
 #include "device.h"
 
-#include <QtDebug>
+#include <QDebug>
 
 sceneXmlReader::sceneXmlReader(myCanvas *scene) : myScene(scene)
 {
