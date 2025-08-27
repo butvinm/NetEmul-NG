@@ -62,7 +62,7 @@ void textItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
 */
 void textItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget)
 {
-    painter->setBrush(Qt::yellow);
+    painter->setBrush(QColor("#FFFF88"));
     painter->drawRoundedRect(boundingRect(), 5, 5);
     setDefaultTextColor(Qt::black);
     QGraphicsTextItem::paint(painter,option,widget);
