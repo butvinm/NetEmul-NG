@@ -14,9 +14,9 @@ cableTextItem::cableTextItem(QGraphicsItem *parent /*= 0*/ , QGraphicsScene *sce
 void cableTextItem::paint(QPainter *painter,const QStyleOptionGraphicsItem *option,QWidget *widget)
 {
     updatePosition();
-    painter->setBrush( QBrush( QColor(255,255,255,224) ) );
+    painter->setBrush( QBrush( QColor(50,50,50,224) ) );
     painter->drawRoundedRect(boundingRect(), 5, 5);
-    setDefaultTextColor(Qt::black);
+    setDefaultTextColor(Qt::white);
     QGraphicsTextItem::paint(painter,option,widget);
 }
 
