@@ -22,7 +22,7 @@ This project uses **qmake** (.pro files) as its build system.
 
 ### Build Commands
 - `qmake` - Generate Makefiles from .pro files  
-- `make` - Build the project
+- `make -j8` - Build the project with parallel compilation (8 threads)
 - `make clean` - Clean intermediate build files (object files, MOC files)
 - `make distclean-all` - Clean all build artifacts including executables
 
@@ -113,6 +113,14 @@ When creating releases, always name binaries with architecture specification:
 - `netemul-ng-macos-arm64` - macOS Apple Silicon
 
 This ensures users can easily identify the correct binary for their system.
+
+### Version Management
+**Application Version Policy**: The application version (set via `QCoreApplication::setApplicationVersion()` in `src/mainwindow.cpp`) should ONLY be modified when incompatible changes to the binary format are introduced. This includes:
+- Changes to scene file format that break compatibility with older versions
+- Modifications to save/load mechanisms that render old files unreadable
+- Protocol changes that affect network simulation data persistence
+
+Minor features, bug fixes, or UI changes should NOT trigger application version increments. The application version is specifically used for file format compatibility checking.
 
 ## Development Notes
 
