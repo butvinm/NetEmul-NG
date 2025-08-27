@@ -38,7 +38,7 @@ INCLUDEPATH += . \
     src/interfaces
 QT += script widgets printsupport
 
-QMAKE_POST_LINK += cd ipedit && qmake && make && cd ..
+# QMAKE_POST_LINK += cd ipedit && qmake && make && cd ..
 
 # Default translations path
 TRANSLATIONS_PATH = "translation"
